@@ -1,198 +1,205 @@
-/* Estilos generales */
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: #eef1f7;
     color: #333;
 }
 
+/* ----- ENCABEZADO ----- */
 header {
-    background-color: #0044cc;
+    background: linear-gradient(135deg, #007bff, #0056b3);
     color: white;
     text-align: center;
+    padding: 1.5rem 0;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Contenedor principal con columnas ajustadas */
+.container {
+    display: grid;
+    grid-template-columns: 1.5fr 2fr 1fr; /* Aumenté el tamaño de la columna del menú */
+    gap: 1rem;
     padding: 1rem;
+    max-width: 1200px;
+    margin: 20px auto;
+}
+
+
+/* Estilos generales para secciones */
+nav, main, .right-column {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav:hover, main:hover, .right-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ----- MENÚ LATERAL ----- */
+nav {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    background: #333;
-    display: flex;
-    justify-content: space-around;
 }
 
 nav ul li {
-    padding: 1rem;
+    margin-bottom: 10px;
 }
 
-nav ul li a {
-    color: white;
+nav a {
     text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
 }
 
-/* Estructura de tres columnas */
-main {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 1rem;
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
 }
 
-#galeria, #lugares, #mapa, #noticias {
-    flex: 2;
-    margin-right: 1rem;
-}
-
-aside {
-    flex: 1;
-    background: #ddd;
-    padding: 1rem;
-}
-
-/* Galería */
+/* ----- GALERÍA ----- */
 .galeria {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 15px;
     justify-content: center;
 }
 
 .galeria img {
-    width: calc(40% - 10px);
-    height: auto;
-    border-radius: 5px;
+    width: 250px;
+    height: 150px;
+    border-radius: 8px;
     object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Lugares de interés */
-.lugares {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.galeria img:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.lugares article {
+/* ----- LUGARES Y NOTICIAS ----- */
+.lugares article, .noticias article {
     background: white;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.2rem;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Ajuste del tamaño de imágenes en Lugares */
-.lugares img {
-    width: 700px;
-    height: 350px;
-    border-radius: 5px;
-    object-fit: cover;
+.lugares article:hover, .noticias article:hover {
+    transform: translateY(-5px);
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Noticias (mismo diseño que Lugares de interés) */
-.noticias {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
+.lugares img, .noticias img {
+    width: 500px;
+    height: 250px;
+    border-radius: 8px;
 }
 
-.noticias article {
-    background: white;
-    padding: 1rem;
-    border-radius: 5px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-}
-
-/* Ajuste del tamaño de imágenes en Noticias */
-.noticias img {
-    width: 700px;
-    height: 350px;
-    border-radius: 5px;
-    object-fit: cover;
-}
-
-/* Mapa */
+/* ----- MAPA ----- */
 iframe {
-    width: 700px;
+    width: 100%;
     height: 350px;
     border: none;
+    border-radius: 8px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive: Cambio de diseño cuando el ancho sea menor a 700px */
-/* Responsive */
-@media (max-width: 700px) {
-    body {
-        padding: 0;
-    }
-
-    nav ul {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    nav ul li {
-        padding: 0.5rem;
-    }
-
-    main {
-        flex-direction: column;
-        padding: 0.5rem;
-    }
-
-    /* Galería de imágenes */
-    .galeria img {
-        width: 100%;
-        height: auto;
-    }
-
-    /* Lugares de interés y Noticias */
-    .lugares, .noticias {
-        grid-template-columns: 1fr;
-    }
-
-    .lugares img, .noticias img {
-        height: auto;
-        width: 100%;
-    }
-
-    /* Mapa */
-    iframe {
-        height: 300px;
-    }
-
-    aside {
-        margin-top: 1rem;
-        padding: 1rem;
-    }
+/* ----- BOTONES ----- */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #007bff;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.3s ease;
 }
 
+.btn:hover {
+    background: #0056b3;
+}
 
-/* Footer mejorado */
+/* ----- FOOTER ----- */
 footer {
-    background-color: #222;
+    background: #222;
     color: white;
     text-align: center;
     padding: 1rem;
     margin-top: 2rem;
+    font-size: 1rem;
 }
 
-.footer-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.footer-social {
-    margin-top: 10px;
-}
-
-.footer-social a {
-    color: white;
-    margin: 0 10px;
-    font-size: 1.5rem;
+footer a {
+    color: #007bff;
     text-decoration: none;
-    transition: color 0.3s;
+    font-weight: bold;
 }
 
-.footer-social a:hover {
-    color: #0044cc;
+footer a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 700px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .galeria img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    body {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 10px;
+    }
+
+    .galeria {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .galeria img {
+        width: 90%;
+    }
 }
